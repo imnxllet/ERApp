@@ -143,7 +143,7 @@ public class App implements Serializable {
 
 					} catch (Exception e) {
 					}
-					p.listOfRecords.put(time, re);
+					p.getListOfRecords().put(time, re);
 				}
 			} catch (Exception e) {
 			}

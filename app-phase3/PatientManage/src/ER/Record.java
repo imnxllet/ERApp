@@ -34,7 +34,7 @@ public class Record implements Serializable {
 	/**
 	 * The time that patient arrived.
 	 */
-	protected String arrivaltime;
+	private String arrivaltime;
 
 	/**
 	 * Time when Patient seen by a doctor.
@@ -53,7 +53,7 @@ public class Record implements Serializable {
 	 *            The patient's arrival time.
 	 */
 	public Record(String time) {
-		this.arrivaltime = time;
+		this.setArrivaltime(time);
 		this.setBloodPressure(new TreeMap<String, String>());
 		this.setHeartRate(new TreeMap<String, String>());
 		this.setTemperature(new TreeMap<String, String>());
@@ -117,7 +117,7 @@ public class Record implements Serializable {
 	 * @return the arrivaltime, bloodPressure, heartRate and Temperature of this Record.
 	 */
 	public String toString() {
-		return this.arrivaltime.toString() + "~" + BPtoString() + "~"
+		return this.getArrivaltime().toString() + "~" + BPtoString() + "~"
 				+ HRtoString() + "~" + TEMPtoString() + "~" + getSeenByDoctor();
 	}
 
@@ -272,5 +272,13 @@ public class Record implements Serializable {
 	 */
 	public void setUrgency(int urgency) {
 		this.urgency = urgency;
+	}
+
+	public String getArrivaltime() {
+		return arrivaltime;
+	}
+
+	public void setArrivaltime(String arrivaltime) {
+		this.arrivaltime = arrivaltime;
 	}
 }

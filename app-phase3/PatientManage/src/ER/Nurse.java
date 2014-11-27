@@ -25,7 +25,7 @@ public class Nurse implements Serializable {
 	/**
 	 * The Patients' data base.
 	 */
-	protected App patientdata;
+	private App patientdata;
 
 	/**
 	 * Constructs a Nurse.
@@ -75,7 +75,7 @@ public class Nurse implements Serializable {
 	 *            The time the patient arrived.
 	 */
 	public void createRecord(String time) {
-		this.getPatient().listOfRecords.put(time, new Record(time));
+		this.getPatient().getListOfRecords().put(time, new Record(time));
 	}
 
 	/**
@@ -90,7 +90,7 @@ public class Nurse implements Serializable {
 	 *            The updating temperature.
 	 */
 	public void updateTemp(String arrival, String time, String temp) {
-		Record r = this.getPatient().listOfRecords.get(arrival);
+		Record r = this.getPatient().getListOfRecords().get(arrival);
 		r.getTemperature().put(time, temp);
 		this.getPatient().updateUrgency();
 	}
@@ -108,7 +108,7 @@ public class Nurse implements Serializable {
 	 *            The updating blood pressure.
 	 */
 	public void updateBP(String arrival, String time, String bp) {
-		Record r = this.getPatient().listOfRecords.get(arrival);
+		Record r = this.getPatient().getListOfRecords().get(arrival);
 		r.getBloodPressure().put(time, bp);
 		this.getPatient().updateUrgency();
 	}
@@ -125,7 +125,7 @@ public class Nurse implements Serializable {
 	 *            The updating heart rate.
 	 */
 	public void updateHR(String arrival, String time, String hr) {
-		Record r = this.getPatient().listOfRecords.get(arrival);
+		Record r = this.getPatient().getListOfRecords().get(arrival);
 		r.getHeartRate().put(time, hr);
 		this.getPatient().updateUrgency();
 	}
@@ -139,9 +139,9 @@ public class Nurse implements Serializable {
 	public String viewRecords() {
 		String display = "";
 
-		if (!this.getPatient().listOfRecords.isEmpty()) {
+		if (!this.getPatient().getListOfRecords().isEmpty()) {
 			Integer i = 0;
-			for (Record r : this.getPatient().listOfRecords.values()) {
+			for (Record r : this.getPatient().getListOfRecords().values()) {
 				String bpdisplay = "";
 				String hrdisplay = "";
 				String tempdisplay = "";
@@ -175,7 +175,7 @@ public class Nurse implements Serializable {
 				}
 				r.updateUrgency();
 				display = display + "Rcord #" + i.toString()
-						+ "\nArrival Time: " + r.arrivaltime + "\n"
+						+ "\nArrival Time: " + r.getArrivaltime() + "\n"
 						+ "Blood Pressure records: " + "\n" + bpdisplay + "\n"
 						+ "Heart Rate records: " + "\n" + hrdisplay + "\n"
 						+ "Temperature records: " + "\n" + tempdisplay + "\n"
@@ -270,7 +270,7 @@ public class Nurse implements Serializable {
 			}
 		}
 		for (Patient p : result) {
-			if (p.listOfRecords.lastEntry().getValue().getSeenByDoctor() == "") {
+			if (p.getListOfRecords().lastEntry().getValue().getSeenByDoctor() == "") {
 				p.updateUrgency();
 				finalresult.add(p);
 			}

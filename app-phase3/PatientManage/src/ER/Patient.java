@@ -53,7 +53,7 @@ public class Patient implements Serializable, Comparable<Patient> {
 	/**
 	 * Patient's record history.
 	 */
-	protected TreeMap<String, Record> listOfRecords;
+	private TreeMap<String, Record> listOfRecords;
 
 	// private ArrayList<Record> arrayOfRecords;
 
@@ -94,7 +94,7 @@ public class Patient implements Serializable, Comparable<Patient> {
 		this.setName(name);
 		this.setHealthCardNum(healthCardNum);
 		this.setBirthDate(dob);
-		this.listOfRecords = new TreeMap<String, Record>();
+		this.setListOfRecords(new TreeMap<String, Record>());
 		this.setPrescription(new TreeMap<String, String>());
 
 		String[] birthInfo = dob.split("-");
@@ -122,8 +122,8 @@ public class Patient implements Serializable, Comparable<Patient> {
 	@Override
 	public String toString() {
 		String records = "";
-		if (!listOfRecords.isEmpty()) {
-			for (Record r : listOfRecords.values()) {
+		if (!getListOfRecords().isEmpty()) {
+			for (Record r : getListOfRecords().values()) {
 				records = records + r.toString() + ";";
 			}
 		}
@@ -154,7 +154,7 @@ public class Patient implements Serializable, Comparable<Patient> {
 	 * @return the list of records the patient has.
 	 */
 	public Map<String, Record> getRecords() {
-		return this.listOfRecords;
+		return this.getListOfRecords();
 	}
 
 	/**
@@ -180,8 +180,8 @@ public class Patient implements Serializable, Comparable<Patient> {
 	 * Updates urgency point for the Patient based on hospital policy.
 	 */
 	public void updateUrgency() {
-		listOfRecords.lastEntry().getValue().updateUrgency();
-		Integer point = listOfRecords.lastEntry().getValue().getUrgency();
+		getListOfRecords().lastEntry().getValue().updateUrgency();
+		Integer point = getListOfRecords().lastEntry().getValue().getUrgency();
 		if (age < 2) {
 			point++;
 		}
@@ -273,6 +273,14 @@ public class Patient implements Serializable, Comparable<Patient> {
 	 */
 	public void setUrgency(int urgency) {
 		this.urgency = urgency;
+	}
+
+	public TreeMap<String, Record> getListOfRecords() {
+		return listOfRecords;
+	}
+
+	public void setListOfRecords(TreeMap<String, Record> listOfRecords) {
+		this.listOfRecords = listOfRecords;
 	}
 
 }

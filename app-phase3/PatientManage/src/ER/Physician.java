@@ -23,7 +23,7 @@ public class Physician implements Serializable {
 	/**
 	 * The Patients' data base.
 	 */
-	protected App patientdata;
+	private App patientdata;
 
 	/**
 	 * Constructs a Nurse.
