@@ -1,0 +1,169 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".CreateRecordActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin" >
+
+        <TextView
+            android:id="@+id/createtop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/arrivalTime"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="1dp"
+            android:text="@string/createtop"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/create"
+            style="@style/AppBaseTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/arrivalTime"
+            android:layout_alignBottom="@+id/arrivalTime"
+            android:layout_alignParentRight="true"
+            android:onClick="createrecord"
+            android:text="@string/create"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/at"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/arrivalTime"
+            android:layout_alignRight="@+id/create"
+            android:layout_below="@+id/create"
+            android:layout_marginTop="76dp"
+            android:ems="10"
+            android:hint="@string/time_hint1"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/temp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/at"
+            android:layout_below="@+id/at"
+            android:ems="10"
+            android:hint="@string/temp"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/temp"
+            android:layout_below="@+id/temp"
+            android:ems="10"
+            android:hint="@string/hr"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/bp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/hr"
+            android:layout_below="@+id/hr"
+            android:ems="10"
+            android:hint="@string/bp"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/timetemp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/hr"
+            android:layout_alignRight="@+id/createtop"
+            android:ems="10"
+            android:hint="@string/time"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/timehr"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bp"
+            android:layout_alignLeft="@+id/timetemp"
+            android:ems="10"
+            android:hint="@string/time"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/timebp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/bp"
+            android:layout_alignParentRight="true"
+            android:ems="10"
+            android:hint="@string/time"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/timebp"
+            android:layout_below="@+id/timebp"
+            android:onClick="updaterecord"
+            android:text="@string/update"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/arrivalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/save"
+            android:layout_below="@+id/createtop"
+            android:layout_toLeftOf="@+id/create"
+            android:ems="10"
+            android:hint="@string/time_hint"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/updatetop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/at"
+            android:layout_below="@+id/create"
+            android:layout_marginTop="30dp"
+            android:text="@string/updatetop"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/seenbydoc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/update"
+            android:layout_alignLeft="@+id/bp"
+            android:layout_alignRight="@+id/arrivalTime"
+            android:ems="10"
+            android:hint="@string/seenbydoc" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignRight="@+id/update"
+            android:layout_below="@+id/update"
+            android:onClick="saveAll"
+            android:text="@string/save" />
+
+        <TextView
+            android:id="@+id/prompt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/save"
+            android:layout_alignParentBottom="true"
+            android:text="@string/prompt" />
+
+    </RelativeLayout>
+
+</ScrollView>

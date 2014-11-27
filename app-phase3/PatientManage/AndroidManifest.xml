@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.patientmanage"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.patientmanage.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.AddPrescriptionActivity"
+            android:label="@string/title_activity_add_prescription" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.CreateNewPatient"
+            android:label="@string/title_activity_create_new_patient" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.CreateRecordActivity"
+            android:label="@string/title_activity_create_record" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.MainNurseActivity"
+            android:label="@string/title_activity_main_nurse" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.MainPhysicianActivity"
+            android:label="@string/title_activity_main_physician" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.PatientWaitlist"
+            android:label="@string/title_activity_patient_waitlist" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.PhyWelcomeActivity"
+            android:label="@string/title_activity_phy_welcome" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.SearchActivity"
+            android:label="@string/title_activity_search" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.ViewPatientActivity"
+            android:label="@string/title_activity_view_patient" >
+        </activity>
+        <activity
+            android:name="com.example.patientmanage.ViewRecordActivity"
+            android:label="@string/title_activity_view_record" >
+        </activity>
+    </application>
+
+</manifest>
